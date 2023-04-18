@@ -42,10 +42,7 @@ export default class App extends Component {
     return (
       <div className="container">
         <h1>Phonebook</h1>
-        <ContactForm
-          addInfoToList={this.addInfoToList}
-          inputData={this.inputData}
-        />
+        <ContactForm addInfoToList={this.addInfoToList} />
         <h2>Contacts</h2>
         <Filter inputData={this.inputData} />
         <Contacts contacts={contacts} filter={filter} onDelete={this.delete} />

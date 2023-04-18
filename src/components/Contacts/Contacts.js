@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Contacts({ contacts, filter, onDelete }) {
   if (contacts.length === 0) return;
@@ -30,3 +31,15 @@ function filterContacts(contacts, filter) {
     ({ name }) => name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
   );
 }
+
+Contacts.propTypes = {
+  filter: PropTypes.string,
+  onDelete: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+};

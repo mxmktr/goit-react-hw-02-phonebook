@@ -1,4 +1,6 @@
-export default function Filter(props) {
+import PropTypes from 'prop-types';
+
+export default function Filter({ inputData }) {
   return (
     <label style={{ marginBottom: '20px', display: 'inline-block' }}>
       Find contacts by name
@@ -7,8 +9,12 @@ export default function Filter(props) {
         className="filter-input"
         type="text"
         name="filter"
-        onChange={event => props.inputData(event)}
+        onChange={event => inputData(event)}
       />
     </label>
   );
 }
+
+Filter.propTypes = {
+  inputData: PropTypes.func.isRequired,
+};
