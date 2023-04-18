@@ -1,4 +1,4 @@
-@import-normalize;
+@import './components/CSS/normalize.css';
 
 body {
   margin: 0;
@@ -26,4 +26,40 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+button {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.filter-label {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+ul {
+  padding-left: 40px;
+}
+
+.filter__button {
+  margin-top: 20px;
+}
+
+ul button {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+ul li:not(:last-child) {
+  margin-bottom: 10px;
 }

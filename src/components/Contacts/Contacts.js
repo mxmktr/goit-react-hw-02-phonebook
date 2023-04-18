@@ -1,11 +1,13 @@
 import React from 'react';
 
 export default function Contacts({ contacts, filter, onDelete }) {
+  if (contacts.length === 0) return;
+
   return (
     <ul>
       {filterContacts(contacts, filter).map(({ id, name, number }) => (
         <li key={id}>
-          {name}: {number}
+          {name}: {number} {}
           <button
             type="button"
             onClick={() => {
