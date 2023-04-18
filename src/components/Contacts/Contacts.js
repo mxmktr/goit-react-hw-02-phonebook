@@ -1,11 +1,19 @@
 import React from 'react';
 
-export default function Contacts({ contacts, filter }) {
+export default function Contacts({ contacts, filter, onDelete }) {
   return (
     <ul>
       {filterContacts(contacts, filter).map(({ id, name, number }) => (
         <li key={id}>
           {name}: {number}
+          <button
+            type="button"
+            onClick={() => {
+              onDelete(id);
+            }}
+          >
+            Delete
+          </button>
         </li>
       ))}
     </ul>

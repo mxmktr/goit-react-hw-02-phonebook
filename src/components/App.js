@@ -4,12 +4,7 @@ import Contacts from './Contacts/Contacts';
 
 export default class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     name: '',
     number: '',
     filter: '',
@@ -30,6 +25,14 @@ export default class App extends Component {
 
   inputData = ({ currentTarget }) => {
     this.setState({ [currentTarget.name]: currentTarget.value });
+  };
+
+  delete = indexID => {
+    this.setState(({ contacts }) => {
+      return {
+        contacts: contacts.filter(contact => contact.id !== indexID),
+      };
+    });
   };
 
   render() {
@@ -82,6 +85,7 @@ export default class App extends Component {
             <Contacts
               contacts={this.state.contacts}
               filter={this.state.filter}
+              onDelete={this.delete}
             />
           )}
         </div>
